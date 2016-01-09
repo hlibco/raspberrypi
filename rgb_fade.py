@@ -23,7 +23,7 @@ RGBS = [RGB_RED, RGB_GREEN, RGB_BLUE,
         RGB_CYAN, RGB_WHITE, RGB_YELLOW, RGB_MAGENTA]
 
 # Frequency
-FREQ = 100
+FREQ = 200
 
 # Set up the wiring
 GPIO.setmode(GPIO.BOARD)
