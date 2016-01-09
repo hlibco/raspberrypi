@@ -1,4 +1,9 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+'''
+Turns ON and OFF a single LED on Port GPIO 7 (PIN 26) with some intervals.
+'''
 import RPi.GPIO as GPIO
 import time
 print GPIO.VERSION
@@ -35,3 +40,5 @@ def main():
   magic()
   clear()
   GPIO.cleanup()
+
+main()
