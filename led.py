@@ -26,7 +26,7 @@ def magic():
 
   for delay in delays:
       switch = not switch
-      GPIO.output(LED1, switch)
+      GPIO.output(LED_1, switch)
       time.sleep(delay)
 
 def main():
