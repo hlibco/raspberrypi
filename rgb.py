@@ -18,8 +18,8 @@ RGB_YELLOW = [RGB_RED, RGB_GREEN]
 RGB_MAGENTA = [RGB_RED, RGB_BLUE]
 
 # Available colors
-RGBS = [RGB_RED, RGB_GREEN, RGB_BLUE,
-        RGB_CYAN, RGB_WHITE, RGB_YELLOW, RGB_MAGENTA]
+COLORS = [RGB_RED, RGB_GREEN, RGB_BLUE,
+          RGB_CYAN, RGB_WHITE, RGB_YELLOW, RGB_MAGENTA]
 
 def setup():
   # Set up the wiring
@@ -31,7 +31,7 @@ def setup():
 
 # Reset pins to default state
 def clear():
-    gpiocontrol(RGB_WHITE, 0)
+  gpiocontrol(RGB_WHITE, 0)
 
 # Control the state of a single or multiple pins in a list
 def gpiocontrol(pins, state):
@@ -44,8 +44,8 @@ def gpiocontrol(pins, state):
     for i in pins:
       GPIO.output(i, state)
 
-def magic():
-  for pin_id in RGBS:
+def change_colors():
+  for pin_id in COLORS:
       gpiocontrol(pin_id, 1)
       time.sleep(1.5)
       gpiocontrol(pin_id, 0)
@@ -53,7 +53,7 @@ def magic():
 # This function will run if the file is executed directly
 def main():
   setup()
-  magic()
+  change_colors()
   clear()
   # Release GPIO
   GPIO.cleanup()
