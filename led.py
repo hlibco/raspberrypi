@@ -20,10 +20,11 @@ def setup():
   # Setup Ports
   for led_id in LEDS:
     GPIO.setup(led_id, GPIO.OUT)
+  clear()
 
 def clear():
-  for led_id in LEDS:
-    GPIO.output(led_id, 0)
+  for pin_id in LEDS:
+    GPIO.output(pin_id, 0)
 
 def magic():
   switch = False
@@ -36,9 +37,10 @@ def magic():
 
 def main():
   setup()
-  clear()
   magic()
   clear()
   GPIO.cleanup()
 
-main()
+# This function will run if the file is executed directly
+if __name__=='__main__':
+  main()
