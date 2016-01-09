@@ -25,6 +25,13 @@ RGBS = [RGB_RED, RGB_GREEN, RGB_BLUE,
 # Frequency
 FREQ = 100
 
+# Set up the wiring
+GPIO.setmode(GPIO.BOARD)
+
+# Setup Ports
+for pin_id in RGB_WHITE:
+  GPIO.setup(pin_id, GPIO.OUT)
+
 # Set up colors using PWM so we can control individual brightness
 RED = GPIO.PWM(RGB_RED, FREQ)
 BLUE = GPIO.PWM(RGB_BLUE, FREQ)
@@ -32,14 +39,6 @@ GREEN = GPIO.PWM(RGB_GREEN, FREQ)
 RED.start(0)
 BLUE.start(0)
 GREEN.start(0)
-
-def setup():
-  # Set up the wiring
-  GPIO.setmode(GPIO.BOARD)
-  # Setup Ports
-  for pin_id in RGB_WHITE:
-    GPIO.setup(pin_id, GPIO.OUT)
-  clear()
 
 # Reset pins to default state
 def clear():
@@ -86,8 +85,6 @@ def PosSinWave(amplitude, angle, frequency):
 
 # This function will run if the file is executed directly
 def main():
-  setup()
-
   try:
     while 1:
       for i in range(0, 720, 5):
